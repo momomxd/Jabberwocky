@@ -10,6 +10,11 @@ public class HelloJabberwocky {
 
 	
 	int alpha = 239; //int deklariert
+	
+	
+	}
+	
+
 	}
 
 }
