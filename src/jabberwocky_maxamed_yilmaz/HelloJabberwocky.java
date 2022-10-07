@@ -8,6 +8,8 @@ public class HelloJabberwocky {
 	
 	System.out.println("Schaffen wir das Projekt?");
 
+	
+	int alpha = 239; //int deklariert
 	}
 
 }
