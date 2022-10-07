@@ -18,11 +18,11 @@ public class Jabberwocky_View {
 	protected VBox vboxforControls;						//Hbox für Kontroll elemente
 	protected Button btn;								//Button für eingabe bestätigen
 	
-	public Jabberwocky_View(Jabberwocky_Model model, Jabberwocky_View view) {
+	public Jabberwocky_View(Stage primaryStage, Jabberwocky_Model model) {
 		
-		this.Model = model;
-		this.stage = stage;
-		
+		this.stage = primaryStage;
+			this.Model = model;
+			
 		stage.setTitle(" JabberWocky - Sprachlernmaschine");
 		textfield = new TextField();
 		
