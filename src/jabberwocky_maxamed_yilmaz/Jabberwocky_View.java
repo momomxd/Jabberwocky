@@ -27,8 +27,6 @@ public class Jabberwocky_View {
 	protected Menu menuFile, menuHelp;
 
 					
-
-	
 	public Jabberwocky_View(Stage primaryStage, Jabberwocky_Model model) {
 		
 			this.Model = model;
