@@ -25,7 +25,6 @@ public class Jabberwocky_View {
 	protected Slider slider;
 	protected MenuBar menuBar;
 	protected Menu menuFile, menuHelp;
-
 					
 	public Jabberwocky_View(Stage primaryStage, Jabberwocky_Model model) {
 		

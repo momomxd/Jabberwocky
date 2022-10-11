@@ -4,10 +4,7 @@ public class Jabberwocky_Model {
 	
 	public static void main(String[] args) {
 		
-	
 		
-	
-	
 				// Speichert die Zeichen von einer Fenstergrösse von 2 in einem String Array und
 				// verschiebt sich um 1 zeichen
 		
