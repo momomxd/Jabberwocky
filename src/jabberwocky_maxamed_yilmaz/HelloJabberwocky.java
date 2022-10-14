@@ -11,6 +11,14 @@ public class HelloJabberwocky {
 	
 	int alpha = 239; //int deklariert
 	
+	TextStatistik textStatistik = new TextStatistik(2,"Hallo mein Name ist Mohamed■");
+	
+	textStatistik.GenerateWahrscheinlichkeitsListe();
+	
+	textStatistik.showList();
+	
+	
+	
 	
 	}
 	
