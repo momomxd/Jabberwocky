@@ -7,7 +7,7 @@ public class TextStatistik {
 	private String inputText;
 	private int Fenstergrösse;
 	private char LastChar = '■';
-	private char splitChar = '¥';
+	private char splitChar = 'ⱺ';
 	private ArrayList TextTeile;
 	
 	
@@ -40,7 +40,7 @@ public class TextStatistik {
 		char nextChar = inputText.charAt(index + Fenstergrösse);
 		
 		//Speichert die Fenstergrösse und das nächste Zeichen ab
-		TextTeile.add(window +" " + this.splitChar +" " + nextChar);
+		TextTeile.add(window  + this.splitChar  + nextChar);
 		
 		index++;
 		
