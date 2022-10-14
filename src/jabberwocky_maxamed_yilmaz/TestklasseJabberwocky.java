@@ -1,6 +1,6 @@
 package jabberwocky_maxamed_yilmaz;
 
-public class HelloJabberwocky {
+public class TestklasseJabberwocky {
 
 	public static void main(String[] args) {
 	System.out.println("Hello Jabberwocky");	//Testklasse
