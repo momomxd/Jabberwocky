@@ -23,23 +23,28 @@ public class TextStatistik {
 	}
 	boolean endeListe = false;
 	
+	/*
+	 * Die Methode GenerateTextTeilListe speichert die Fenstergrösse und das nächste Zeichen in Strings
+	 * und speichert diese in der ArrayListe "TextTeile"
+	 */
 	public void GenerateTextTeilListe() {
 		
 		int index = 0;
 		
 		while (!endeListe) {
 			
-			// Holt die Fenstergrösse
+			// Holt die Fenstergrösse und speichert es in einem String
 		String window = inputText.substring(index, index + Fenstergrösse);	
 		
-			// Holt das nächste Zeichen
+			// Holt das nächste Zeichen und speichert es einem String
 		char nextChar = inputText.charAt(index + Fenstergrösse);
 		
 		//Speichert die Fenstergrösse und das nächste Zeichen ab
-		TextTeile.add(window + " ¥ " + nextChar);
+		TextTeile.add(window +" " + this.splitChar +" " + nextChar);
 		
 		index++;
 		
+		// If schleife kontrolliert ob wir das letzte Zeichen '■' erreicht wurde
 		 if(nextChar == this.LastChar) {
 		 	endeListe = true;
 		 }
