@@ -18,12 +18,12 @@ public class TextStatistik {
 		
 		TextTeile = new ArrayList<String>();
 		
-		GenerateWahrscheinlichkeitsListe();
+		GenerateTextTeilListe();
 		
 	}
 	boolean endeListe = false;
 	
-	public void GenerateWahrscheinlichkeitsListe() {
+	public void GenerateTextTeilListe() {
 		
 		int index = 0;
 		
