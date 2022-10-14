@@ -12,6 +12,7 @@ public class TextStatistik {
 	
 	
 	
+	
 	public TextStatistik(int Fenstergrösse, String inputText) {
 		this.Fenstergrösse = Fenstergrösse;
 		this.inputText = inputText;
