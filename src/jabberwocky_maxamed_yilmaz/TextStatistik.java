@@ -8,9 +8,6 @@ public class TextStatistik {
 	private int Fenstergrösse;
 	private char LastChar = '■';
 	private char splitChar = 'ⱺ';
-	public int getFenstergrösse() {
-		return Fenstergrösse;
-	}
 	private ArrayList TextTeile;
 	
 	
@@ -118,5 +115,9 @@ public ArrayList getTextTeile() {
 
 public void setTextTeile(ArrayList textTeile) {
 	TextTeile = textTeile;
+}
+
+public int getFenstergrösse() {
+	return Fenstergrösse;
 }
 }
