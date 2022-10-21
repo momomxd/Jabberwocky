@@ -1,6 +1,7 @@
 package jabberwocky_maxamed_yilmaz;
 
 import java.util.ArrayList;
+import java.util.Random;
 
 public class TextStatistik {
 	
@@ -66,8 +67,24 @@ public class TextStatistik {
 		}		
 	}
 	
+	//Methode um das nächste Zeichen auszuwählen mit Random
+	
+	public Character getNextChar(String input) {
+		
+		ArrayList<Character> PossibleNextChar = FindPossibleCharacters(input);
+		
+		Random randomchar = new Random();
+		
+		int randomnextchar = randomchar.nextInt(PossibleNextChar.size());
+		
+		char nextchar = (char) randomnextchar;
+		
+		return nextchar;
+	}
+	
+	
 	// Methode gibt eine ArrayListe mit allen möglichen nächsten Zeichen zurück
-	public ArrayList <Character> possibleCharacter(String input){
+	public ArrayList <Character> FindPossibleCharacters(String input){
 	
 	ArrayList <Character> possibleCharacters = new ArrayList<>();	
 	
@@ -84,7 +101,8 @@ public class TextStatistik {
 		possibleCharacters.add(nextChar);			
 			}
 		}
-		return possibleCharacters;
+	return possibleCharacters;
+	
 	}
 	
 	// Methode um einen neuen Text zu generieren
