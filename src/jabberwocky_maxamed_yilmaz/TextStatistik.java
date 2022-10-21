@@ -7,10 +7,10 @@ public class TextStatistik {
 	
 	private String inputText;
 	private int Fenstergrösse;
-	private char LastChar = '■';
-	private char splitChar = 'ⱺ';
-	private ArrayList TextTeile;
+	private ArrayList <String>TextTeile;
 		
+	Character LastChar = '■';
+	Character splitChar = 'ⱺ';
 	
 	public TextStatistik(int Fenstergrösse, String inputText) {
 		this.Fenstergrösse = Fenstergrösse;
@@ -31,11 +31,13 @@ public class TextStatistik {
 		
 		while (!endeListe) {
 			
+			
 			// Holt die Fenstergrösse und speichert es in einem String
 		String window = inputText.substring(index, index + Fenstergrösse);	
 		
 			// Holt das nächste Zeichen und speichert es einem String
-		char nextChar = inputText.charAt(index + Fenstergrösse);
+		char nextChar =  inputText.charAt(index + Fenstergrösse);
+		
 		
 		//Speichert die Fenstergrösse und das nächste Zeichen ab
 		TextTeile.add(window  + this.splitChar  + nextChar);
@@ -63,7 +65,7 @@ public class TextStatistik {
 		for(int i = 0; i > this.TextTeile.size(); i++) {
 			
 			String [] TextAndNextChar = new String [TextTeile.size()];
-			TextAndNextChar = TextTeile.get(i).toString().split("ⱺ");		
+			TextAndNextChar = TextTeile.get(i).split("ⱺ");		
 		}		
 	}
 	
@@ -75,30 +77,28 @@ public class TextStatistik {
 		
 		Random randomchar = new Random();
 		
-		int randomnextchar = randomchar.nextInt(PossibleNextChar.size());
+		int randomnextchar = randomchar.nextInt(PossibleNextChar.size()-1);
 		
-		char nextchar = (char) randomnextchar;
-		
-		return nextchar;
+		return PossibleNextChar.get(randomnextchar);
 	}
 	
 	
 	// Methode gibt eine ArrayListe mit allen möglichen nächsten Zeichen zurück
-	public ArrayList <Character> FindPossibleCharacters(String input){
+	public ArrayList <Character> FindPossibleCharacters(String inputText){
 	
 	ArrayList <Character> possibleCharacters = new ArrayList<>();	
 	
 	for(int i = 0; i<TextTeile.size();i++) {
-		input = TextTeile.get(i).toString();
+		inputText = TextTeile.get(i).toString();
 		
-		String [] TextandnextChar = input.split(Integer.toString(this.splitChar));
+		String [] TextandnextChar = inputText.split(Integer.toString(this.splitChar));
 		String nextCharinString = TextandnextChar[1];
 		String window = TextandnextChar[0];
 		char nextChar = nextCharinString.charAt(1);
 		
 		
-		if(input.substring(i, i+Fenstergrösse) == window) {
-		possibleCharacters.add(nextChar);			
+		if(inputText.substring(i, i+Fenstergrösse) == window) {
+		possibleCharacters.add(TextandnextChar[1].charAt(0));			
 			}
 		}
 	return possibleCharacters;
@@ -106,9 +106,26 @@ public class TextStatistik {
 	}
 	
 	// Methode um einen neuen Text zu generieren
-	public void generateText() {
-	for(int i = 0; i<TextTeile.size();i++) {
-		}	
+	public String generateText() {
+						
+	String WindowPart = this.TextTeile.get(0).split(this.splitChar.toString())[0];
+		
+		boolean endeErreicht = false;
+		int index = 0;
+		
+		while(!endeErreicht) {
+			char nextChar = getNextChar(WindowPart.substring(index, index + Fenstergrösse));
+			
+			WindowPart += nextChar;
+			
+			if(nextChar == this.LastChar) {
+				
+				endeErreicht = true;
+			}
+		}
+		return WindowPart;
+		
+		
 	}
 
 	public ArrayList getTextTeile() {
