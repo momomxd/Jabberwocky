@@ -89,9 +89,7 @@ public class TextStatistik {
 		// Schleife durch jeden String der Liste "TextTeile"
 		for(int i = 0; i<TextTeile.size();i++) {
 		
-			// Die Strings beim Trennzeichen splitten
 			String [] TextandnextChar =this.TextTeile.get(i).split(this.splitChar.toString());
-			
 			String nextCharinString = TextandnextChar[1];
 			String window = TextandnextChar[0];
 			char nextChar = nextCharinString.charAt(1);
@@ -123,8 +121,6 @@ public class TextStatistik {
 				endeErreicht = true;
 			}
 		}
-		
-		
 		return WindowPart;
 		
 		
