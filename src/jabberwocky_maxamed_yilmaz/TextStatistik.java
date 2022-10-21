@@ -84,14 +84,17 @@ public class TextStatistik {
 	// Methode gibt eine ArrayListe mit allen möglichen nächsten Zeichen zurück
 	public ArrayList <Character> findPossibleCharacters(String input){
 	
-	ArrayList <Character> possibleCharacters = new ArrayList<>();	
+		ArrayList <Character> possibleCharacters = new ArrayList<>();	
 	
-	for(int i = 0; i<TextTeile.size();i++) {
+		// Schleife durch jeden String der Liste "TextTeile"
+		for(int i = 0; i<TextTeile.size();i++) {
 		
-		String [] TextandnextChar =this.TextTeile.get(i).split(this.splitChar.toString());
-		String nextCharinString = TextandnextChar[1];
-		String window = TextandnextChar[0];
-		char nextChar = nextCharinString.charAt(1);
+			// Die Strings beim Trennzeichen splitten
+			String [] TextandnextChar =this.TextTeile.get(i).split(this.splitChar.toString());
+			
+			String nextCharinString = TextandnextChar[1];
+			String window = TextandnextChar[0];
+			char nextChar = nextCharinString.charAt(1);
 		
 		
 		if(inputText.substring(i, i+Fenstergrösse) == window) {
