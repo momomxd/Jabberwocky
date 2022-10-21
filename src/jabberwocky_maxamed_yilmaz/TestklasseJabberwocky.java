@@ -9,8 +9,6 @@ public class TestklasseJabberwocky {
 	
 	TextStatistik textStatistik = new TextStatistik(2,"Hallo mein Name ist Mohamed ■");
 	
-	textStatistik.GenerateTextTeilListe();
-	
 	textStatistik.showList();
 	
 	textStatistik.generateText();

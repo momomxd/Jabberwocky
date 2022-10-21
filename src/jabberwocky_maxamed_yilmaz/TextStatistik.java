@@ -23,31 +23,28 @@ public class TextStatistik {
 	
 	/*
 	 * Die Methode GenerateTextTeilListe speichert die Fenstergrösse und das nächste Zeichen in Strings
-	 * und speichert diese in der ArrayListe "TextTeile"
+	 * und speichert diese in der ArrayListe "TextTeile" im Format: StartString {splitChar} NextChar
 	 */
-	public void GenerateTextTeilListe() {
-		boolean endeListe = false;
+	private void GenerateTextTeilListe() {
+		boolean endeErreicht = false;
 		int index = 0;
 		
-		while (!endeListe) {
+		while (!endeErreicht) {
 			
-			
-			// Holt die Fenstergrösse und speichert es in einem String
-		String window = inputText.substring(index, index + Fenstergrösse);	
+				// Holt die Fenstergrösse und speichert es in einem String
+			String window = inputText.substring(index, index + Fenstergrösse);	
 		
-			// Holt das nächste Zeichen und speichert es einem String
-		char nextChar =  inputText.charAt(index + Fenstergrösse);
+				// Holt das nächste Zeichen nach der Fenstergrösse
+			Character nextChar =  inputText.charAt(index + Fenstergrösse);
 		
+				// fügt den StartString + splitchar + nextChar der TextTeile Liste hinzu
+			TextTeile.add(window  + this.splitChar  + nextChar);
+			index++;
 		
-		//Speichert die Fenstergrösse und das nächste Zeichen ab
-		TextTeile.add(window  + this.splitChar  + nextChar);
-		
-		index++;
-		
-		// If schleife kontrolliert ob wir das letzte Zeichen '■' erreicht wurde
-		 if(nextChar == this.LastChar) {
-		 	endeListe = true;
-		 }	 
+				//Wenn das nächste Zeichen und das letzte Zeichen gleich sind, hat man das Ende des Input Textes erreicht
+			if(nextChar.equals(this.LastChar)) {
+		 	endeErreicht = true;
+			}	 
 		}	
 	}
 	
@@ -73,25 +70,25 @@ public class TextStatistik {
 	
 	public Character getNextChar(String input) {
 		
-		ArrayList<Character> PossibleNextChar = FindPossibleCharacters(input);
+		//holt alle möglichen nächsten Zeichen
+		ArrayList<Character> PossibleNextChar = findPossibleCharacters(input);
 		
 		Random randomchar = new Random();
 		
-		int randomnextchar = randomchar.nextInt(PossibleNextChar.size()-1);
+		int randomnextchar = randomchar.nextInt(PossibleNextChar.size());
 		
 		return PossibleNextChar.get(randomnextchar);
 	}
 	
 	
 	// Methode gibt eine ArrayListe mit allen möglichen nächsten Zeichen zurück
-	public ArrayList <Character> FindPossibleCharacters(String inputText){
+	public ArrayList <Character> findPossibleCharacters(String input){
 	
 	ArrayList <Character> possibleCharacters = new ArrayList<>();	
 	
 	for(int i = 0; i<TextTeile.size();i++) {
-		inputText = TextTeile.get(i).toString();
 		
-		String [] TextandnextChar = inputText.split(Integer.toString(this.splitChar));
+		String [] TextandnextChar =this.TextTeile.get(i).split(this.splitChar.toString());
 		String nextCharinString = TextandnextChar[1];
 		String window = TextandnextChar[0];
 		char nextChar = nextCharinString.charAt(1);
