@@ -123,6 +123,8 @@ public class TextStatistik {
 				endeErreicht = true;
 			}
 		}
+		
+		
 		return WindowPart;
 		
 		
