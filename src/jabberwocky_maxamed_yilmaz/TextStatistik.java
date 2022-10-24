@@ -38,7 +38,7 @@ public class TextStatistik {
 			Character nextChar =  inputText.charAt(index + Fenstergrösse);
 		
 				// fügt den StartString + splitchar + nextChar der TextTeile Liste hinzu
-			TextTeile.add(window  + this.splitChar  + nextChar);
+			this.TextTeile.add(window  + this.splitChar  + nextChar);
 			index++;
 		
 				//Wenn das nächste Zeichen und das letzte Zeichen gleich sind, hat man das Ende des Input Textes erreicht
@@ -82,7 +82,7 @@ public class TextStatistik {
 	
 	
 	// Methode gibt eine ArrayListe mit allen möglichen nächsten Zeichen zurück
-	public ArrayList <Character> findPossibleCharacters(String input){
+	private ArrayList <Character> findPossibleCharacters(String input){
 	
 		ArrayList <Character> possibleCharacters = new ArrayList<>();	
 	
@@ -94,8 +94,9 @@ public class TextStatistik {
 			String window = TextandnextChar[0];
 			char nextChar = nextCharinString.charAt(1);
 		
-		
-		if(inputText.substring(i, i+Fenstergrösse) == window) {
+		// Wenn der Text gleich ist wie der input
+		if(TextandnextChar[0].equals(input)) {
+			// füge das dazugehörige nächste Zeichen dem Array hinzu
 		possibleCharacters.add(TextandnextChar[1].charAt(0));			
 			}
 		}
