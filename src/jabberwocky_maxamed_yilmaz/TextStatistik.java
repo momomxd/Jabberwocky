@@ -113,18 +113,6 @@ public class TextStatistik {
 		System.out.print(newText);	
 		return newText;
 		
-		
 	}
 
-	public ArrayList getTextTeile() {
-	return TextTeile;
-	}
-
-	public void setTextTeile(ArrayList textTeile) {
-	TextTeile = textTeile;
-	}
-
-	public int getFenstergrösse() {
-	return Fenstergrösse;
-		}
-	}
+}
