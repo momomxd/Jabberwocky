@@ -91,10 +91,6 @@ public class TextStatistik {
 		
 			String [] TextandnextChar =this.TextTeile.get(i).split(this.splitChar.toString());
 			
-		//	String nextCharinString = TextandnextChar[1];
-	//		String window = TextandnextChar[0];
-	//		char nextChar = nextCharinString.charAt(1);
-		
 		// Wenn der Text gleich ist wie der input
 		if(TextandnextChar[0].equals(input)) {
 			// füge das dazugehörige nächste Zeichen dem Array hinzu
