@@ -7,57 +7,14 @@ public class TestklasseJabberwocky {
 	public static void main(String[] args) {
 		
 	
-	TextStatistik textStatistik = new TextStatistik(3,"IF schleife angepasst: nur wenn die Fenstergrösse und der Input gleich sind, wird das dazugehörige nächste Zeichen dem Array hinzugefügt\r\n"
-			+ "■");
+	TextStatistik textStatistik = new TextStatistik(1,"Das Projekt Jabberwocky 28.10.2022 wurde erstellt■");
 	
 	textStatistik.showList();
 
 	
 	textStatistik.generateText();
 	
-	
-	
-	
-//ArrayList <Character> possibleCharacters = new ArrayList<>();	
-//	
-//	for(int i = 0; i<textStatistik.getTextTeile().size();i++) {
-//	
-//	String text = textStatistik.getTextTeile().get(i).toString();
-//		
-//		String [] TextandnextChar = text.split("ⱺ");
-//		
-//		String nextCharinString = TextandnextChar[1];
-//		String window = TextandnextChar[0];
-//		char nextChar = nextCharinString.charAt(0);
-//		
-//		
-//		
-//		possibleCharacters.add(nextChar);
-//				
-//		
-//	}
-//	System.out.println(possibleCharacters);
-//ArrayList <String> windowList = new ArrayList<>();	
-//	
-//	for(int i = 0; i<textStatistik.getTextTeile().size();i++) {
-//	
-//	String text = textStatistik.getTextTeile().get(i).toString();
-//		
-//		String [] TextandnextChar = text.split("ⱺ");
-//		
-//		String nextCharinString = TextandnextChar[1];
-//		String window = TextandnextChar[0];
-//		char nextChar = nextCharinString.charAt(0);
-//	
-//		windowList.add(window);
-//
-//	
-//	
-//	
-//	
-//	}	System.out.println(windowList);
-//	
-
-	}}
+		}
+	}
 
 

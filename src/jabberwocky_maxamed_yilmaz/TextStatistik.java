@@ -56,16 +56,6 @@ public class TextStatistik {
 	
 	}
 	
-	// Methode um nächstes Zeichen zu finden  
-	public void findPossibleChar() {
-		
-		for(int i = 0; i > this.TextTeile.size(); i++) {
-			
-			String [] TextAndNextChar = new String [TextTeile.size()];
-			TextAndNextChar = TextTeile.get(i).split("ⱺ");		
-		}		
-	}
-	
 	//Methode um das nächste Zeichen auszuwählen mit Random
 	
 	public Character getNextChar(String input) {
