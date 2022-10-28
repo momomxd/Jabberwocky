@@ -7,9 +7,11 @@ public class TestklasseJabberwocky {
 	public static void main(String[] args) {
 		
 	
-	TextStatistik textStatistik = new TextStatistik(2,"Hallo mein Name ist Mohamed ■");
+	TextStatistik textStatistik = new TextStatistik(3,"IF schleife angepasst: nur wenn die Fenstergrösse und der Input gleich sind, wird das dazugehörige nächste Zeichen dem Array hinzugefügt\r\n"
+			+ "■");
 	
 	textStatistik.showList();
+
 	
 	textStatistik.generateText();
 	

@@ -90,9 +90,10 @@ public class TextStatistik {
 		for(int i = 0; i<TextTeile.size();i++) {
 		
 			String [] TextandnextChar =this.TextTeile.get(i).split(this.splitChar.toString());
-			String nextCharinString = TextandnextChar[1];
-			String window = TextandnextChar[0];
-			char nextChar = nextCharinString.charAt(1);
+			
+		//	String nextCharinString = TextandnextChar[1];
+	//		String window = TextandnextChar[0];
+	//		char nextChar = nextCharinString.charAt(1);
 		
 		// Wenn der Text gleich ist wie der input
 		if(TextandnextChar[0].equals(input)) {
@@ -107,22 +108,24 @@ public class TextStatistik {
 	// Methode um einen neuen Text zu generieren
 	public String generateText() {
 						
-	String WindowPart = this.TextTeile.get(0).split(this.splitChar.toString())[0];
+	String newText = this.TextTeile.get(0).split(this.splitChar.toString())[0];
 		
 		boolean endeErreicht = false;
 		int index = 0;
 		
 		while(!endeErreicht) {
-			char nextChar = getNextChar(WindowPart.substring(index, index + Fenstergrösse));
+			char nextChar = getNextChar(newText.substring(index, index + Fenstergrösse));
 			
-			WindowPart += nextChar;
+			newText += nextChar;
+			
 			
 			if(nextChar == this.LastChar) {
-				
 				endeErreicht = true;
 			}
+		index++;	
 		}
-		return WindowPart;
+		System.out.print(newText);	
+		return newText;
 		
 		
 	}
