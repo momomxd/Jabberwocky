@@ -7,18 +7,20 @@ public class Jabberwocky_MVC extends Application{
 	
 	private Jabberwocky_Model model;
 	private Jabberwocky_View view;
+	private Jabberwocky_Controller controller;
 
-	
+		public static void main(String[] args)  {
+		launch();
+	}
 	@Override
-	public void start(Stage primaryStage) throws Exception {
-		model = new Jabberwocky_Model();
-		view = new Jabberwocky_View(primaryStage, model);
+	public void start(Stage stage) throws Exception {
+		model = new Jabberwocky_Model(3,"hallo mein Name ist Mohamed");
+		view = new Jabberwocky_View(stage, model);
+		controller = new Jabberwocky_Controller(model, view);
 		view.start();
 	}
 	
 	
-	public static void main(String[] args)  {
-		launch();
-	}
+
 
 }

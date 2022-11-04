@@ -26,10 +26,10 @@ public class Jabberwocky_View {
 	protected MenuBar menuBar;
 	protected Menu menuFile, menuHelp;
 					
-	public Jabberwocky_View(Stage primaryStage, Jabberwocky_Model model) { 
+	public Jabberwocky_View(Stage stage, Jabberwocky_Model model) { 
 		
 			this.Model = model;
-			this.stage = primaryStage;
+			this.stage = stage;
 		
 			
 			BorderPane pane = new BorderPane();
@@ -60,10 +60,16 @@ public class Jabberwocky_View {
 		
 		stage.setScene(scene);
 	
-		
-	}
-	public void start() {
+	
+	
+	
+	
+	}	public void start() {
 		stage.show();
 	}
+	public Stage getStage() {
+		return stage;
+	}
+	
 	
 }
