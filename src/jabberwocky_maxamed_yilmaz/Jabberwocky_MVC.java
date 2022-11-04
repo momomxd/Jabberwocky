@@ -1,5 +1,7 @@
 package jabberwocky_maxamed_yilmaz;
 
+import java.util.Scanner;
+
 import javafx.application.Application;
 import javafx.stage.Stage;
 
@@ -15,7 +17,11 @@ public class Jabberwocky_MVC extends Application{
 	@Override
 	public void start(Stage stage) throws Exception {
 		
-		model = new Jabberwocky_Model(3,"Mohamed ist der Beste Java Entwickler der Welt Habibiii.■");
+		Scanner in = new Scanner(System.in);
+		System.out.println("Bitte den Text eingeben");
+		String inputText = in.nextLine() + "■";
+		
+		model = new Jabberwocky_Model(2,inputText);
 		
 		view = new Jabberwocky_View(stage, model);
 		controller = new Jabberwocky_Controller(model, view);
