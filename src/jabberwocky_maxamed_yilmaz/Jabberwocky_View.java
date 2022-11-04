@@ -50,6 +50,14 @@ public class Jabberwocky_View {
 		btnGenerate = new Button("Generate");
 		
 		slider = new Slider();
+		slider.setValue(4);
+		slider.setMin(1);
+		slider.setMax(7);
+		slider.setMajorTickUnit(1);
+		slider.setMinorTickCount(0);
+		slider.setShowTickLabels(true);
+		slider.setShowTickMarks(true);
+		slider.setSnapToTicks(true);
 		
 		boxforbuttons.getChildren().add(slider);
 		boxforbuttons.getChildren().add(btnGenerate);
