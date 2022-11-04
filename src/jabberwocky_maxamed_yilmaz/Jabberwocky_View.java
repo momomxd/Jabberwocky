@@ -60,9 +60,11 @@ public class Jabberwocky_View {
 		boxfortxt.getChildren().add(txtArea);
 		boxfortxt.getChildren().add(newtxtLabel);
 		
-		
+			VBox topBox = new VBox();
+			topBox.getChildren().add(menuBar);
+			topBox.getChildren().add(box);
 			
-		
+		pane.setTop(topBox);
 		pane.setCenter(boxfortxt);
 		
 		Scene scene = new Scene(pane);
