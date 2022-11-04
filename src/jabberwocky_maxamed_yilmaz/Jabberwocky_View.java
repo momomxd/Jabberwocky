@@ -23,7 +23,7 @@ public class Jabberwocky_View {
 	protected Stage stage;
 	protected Button btnGenerate;						// Button um neuen text zu generieren
 	protected TextArea txtArea;							////Textfeld für Eingabe
-	protected Label	newtxtLabel;
+	protected Label	txtLabel;
 	protected Slider slider;
 	protected MenuBar menuBar;
 	protected Menu menuFile, menuHelp;
@@ -33,15 +33,13 @@ public class Jabberwocky_View {
 			this.Model = model;
 			this.stage = stage;
 		
-		
+			stage.setTitle(" JabberWocky - Sprachlernmaschine");
 			
 			BorderPane pane = new BorderPane();
-			HBox box = new HBox();
+			HBox boxforbuttons = new HBox();
 			HBox boxfortxt = new HBox();
+			VBox topBox = new VBox();
 			
-			
-			
-		stage.setTitle(" JabberWocky - Sprachlernmaschine");
 		
 		menuBar = new MenuBar();
 		menuFile = new Menu("File");
@@ -53,16 +51,18 @@ public class Jabberwocky_View {
 		
 		slider = new Slider();
 		
-		box.getChildren().add(slider);
-		box.getChildren().add(btnGenerate);
+		boxforbuttons.getChildren().add(slider);
+		boxforbuttons.getChildren().add(btnGenerate);
 		
 		txtArea = new TextArea();
+		txtLabel = new Label("Ausgabe: "); 
 		boxfortxt.getChildren().add(txtArea);
-		boxfortxt.getChildren().add(newtxtLabel);
+		boxfortxt.getChildren().add(txtLabel);
 		
-			VBox topBox = new VBox();
+	
+			
 			topBox.getChildren().add(menuBar);
-			topBox.getChildren().add(box);
+			topBox.getChildren().add(boxforbuttons);
 			
 		pane.setTop(topBox);
 		pane.setCenter(boxfortxt);
