@@ -2,6 +2,7 @@ package jabberwocky_maxamed_yilmaz;
 
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.Menu;
 import javafx.scene.control.MenuBar;
 import javafx.scene.control.MenuItem;
@@ -22,6 +23,7 @@ public class Jabberwocky_View {
 	protected Stage stage;
 	protected Button btnGenerate;						// Button um neuen text zu generieren
 	protected TextArea txtArea;							////Textfeld für Eingabe
+	protected Label	newtxtLabel;
 	protected Slider slider;
 	protected MenuBar menuBar;
 	protected Menu menuFile, menuHelp;
@@ -31,9 +33,13 @@ public class Jabberwocky_View {
 			this.Model = model;
 			this.stage = stage;
 		
+		
 			
 			BorderPane pane = new BorderPane();
 			HBox box = new HBox();
+			HBox boxfortxt = new HBox();
+			
+			
 			
 		stage.setTitle(" JabberWocky - Sprachlernmaschine");
 		
@@ -48,13 +54,16 @@ public class Jabberwocky_View {
 		slider = new Slider();
 		
 		box.getChildren().add(slider);
+		box.getChildren().add(btnGenerate);
 		
 		txtArea = new TextArea();
+		boxfortxt.getChildren().add(txtArea);
+		boxfortxt.getChildren().add(newtxtLabel);
 		
-		pane.setTop(menuBar);
-		pane.setRight(btnGenerate);
-		pane.setBottom(txtArea);
-		pane.setCenter(box);
+		
+			
+		
+		pane.setCenter(boxfortxt);
 		
 		Scene scene = new Scene(pane);
 		
@@ -67,6 +76,7 @@ public class Jabberwocky_View {
 	}	public void start() {
 		stage.show();
 	}
+	
 	public Stage getStage() {
 		return stage;
 	}

@@ -14,7 +14,7 @@ public class Jabberwocky_Controller {
 		
 		this.model = model;
 		this.view = view;
-		
+			
 		
 		view.btnGenerate.setOnAction((event) -> {
 			model.generateText();
