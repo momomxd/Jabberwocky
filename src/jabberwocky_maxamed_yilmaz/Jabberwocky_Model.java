@@ -48,7 +48,7 @@ public class Jabberwocky_Model {
 		}	
 	}
 	
-	// Methode um Liste zu überprüfen
+	// Methode um Liste zu überprüfen -> nicht für das Programm relevant 
 	public void showList() {
 		
 		for(int i = 0; i < TextTeile.size(); i++)
