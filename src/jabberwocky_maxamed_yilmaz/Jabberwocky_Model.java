@@ -1,7 +1,13 @@
 package jabberwocky_maxamed_yilmaz;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Random;
+import java.util.Scanner;
+
+import javafx.stage.FileChooser;
 
 public class Jabberwocky_Model {
 	
@@ -114,5 +120,25 @@ public class Jabberwocky_Model {
 		return newText;
 		
 	}
-
+	
+	// Methode liest eine Textdatei ein und gibt den Inhalt als String zurück
+	
+    public String FiletoString () throws FileNotFoundException {
+    	
+    	String text = "";
+    			FileChooser fileChooser = new FileChooser();
+    		File file =	fileChooser.showOpenDialog(null);
+    			
+    			try {
+    			Scanner scan = new Scanner(file);
+    			while(scan.hasNextLine()) {
+    				text += scan.nextLine();
+    			}
+    			scan.close();
+    			
+    			
+    			} catch (IOException e) {
+    			e.printStackTrace();
+    			}return text;
+    }
 }
