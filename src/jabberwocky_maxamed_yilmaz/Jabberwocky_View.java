@@ -40,7 +40,6 @@ public class Jabberwocky_View {
 			HBox boxfortxt = new HBox();
 			VBox topBox = new VBox();
 			
-		
 		menuBar = new MenuBar();
 		menuFile = new Menu("File");
 		menuHelp = new Menu("Help");
