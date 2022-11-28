@@ -15,6 +15,13 @@ public class Jabberwocky_Controller {
 		this.model = model;
 		this.view = view;
 
+		// Changelister für Slider
+		
+		view.slider.valueProperty().addListener(
+				(observable,oldvalue,newvalue) -> {
+					model.setFensterGrösse(newvalue.intValue());
+				});
+		
 		view.btnGenerate.setOnAction((event) -> {
 			model.generateText();
 		});
