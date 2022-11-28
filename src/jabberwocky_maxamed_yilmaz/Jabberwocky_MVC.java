@@ -17,11 +17,10 @@ public class Jabberwocky_MVC extends Application{
 	@Override
 	public void start(Stage stage) throws Exception {
 		
-		Scanner in = new Scanner(System.in);
-		System.out.println("Bitte den Text eingeben");
-		String inputText = in.nextLine() + "■";
+	
 		
-		model = new Jabberwocky_Model(2,inputText);
+
+		model = new Jabberwocky_Model();
 		
 		view = new Jabberwocky_View(stage, model);
 		controller = new Jabberwocky_Controller(model, view);
