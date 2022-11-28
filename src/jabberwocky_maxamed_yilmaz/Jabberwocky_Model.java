@@ -95,6 +95,7 @@ public class Jabberwocky_Model {
 		}
 	return possibleCharacters;
 	
+	
 	}
 	
 	// Methode um einen neuen Text zu generieren
