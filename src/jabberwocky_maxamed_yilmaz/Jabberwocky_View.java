@@ -27,7 +27,7 @@ public class Jabberwocky_View {
 	protected Label ausgabe;	// Label für ausgabe
 	protected Label	eingabe;	// Label für eingabe
 	protected Slider slider;
-	protected Button File;	// Button um Datei einzulesen
+	protected Button file;	// Button um Datei einzulesen
 	protected Menu menuFile, menuHelp;
 					
 	public Jabberwocky_View(Stage stage, Jabberwocky_Model model) { 
@@ -43,7 +43,7 @@ public class Jabberwocky_View {
 			VBox topBox = new VBox();
 			GridPane GPText = new GridPane();
 			
-			File = new Button("  File  ");
+			file = new Button("  File  ");
 		
 		btnGenerate = new Button("Generate");
 		
@@ -72,7 +72,7 @@ public class Jabberwocky_View {
 		GPText.add(ausgabe, 1, 0);
 		GPText.add(newTxt, 1, 1);
 			
-			topBox.getChildren().add(File);
+			topBox.getChildren().add(file);
 			topBox.getChildren().add(boxforbuttons);
 			topBox.getChildren().add(GPText);
 			

@@ -2,6 +2,9 @@ package jabberwocky_maxamed_yilmaz;
 
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
+
+import java.io.FileNotFoundException;
+
 import javafx.application.*;
 import javafx.stage.*;
 
@@ -17,8 +20,7 @@ public class Jabberwocky_Controller {
 
 		// Changelistener für die Fenstergrösse
 
-		view.slider.valueProperty().addListener(
-			(observable, oldvalue, newvalue) -> {
+		view.slider.valueProperty().addListener((observable, oldvalue, newvalue) -> {
 			model.setFensterGrösse(newvalue.intValue());
 		});
 
@@ -26,10 +28,28 @@ public class Jabberwocky_Controller {
 
 		// TODO EVENTHANDLING FÜR DAS EINLESEN EINER TEXTDATEI
 
+		view.file.setOnAction((event) -> {
+
+			try {
+
+				String text = addEndCharIfNotPresent(model.FiletoString(), model.LastChar);
+
+				model.setInputText(text);
+				model.setFensterGrösse((int) view.slider.getValue());
+
+				view.txtArea.setText(model.inputText);
+
+			} catch (FileNotFoundException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+
+		});
+
 		// EVENTHANDLING FÜR DEN GENERATE BUTTON
 		view.btnGenerate.setOnAction((event) -> {
 
-			model.setInputText(view.txtArea.getText());
+			model.setInputText(view.txtArea.getText()+ model.LastChar);
 
 			model.setTextTeile();
 
@@ -37,7 +57,13 @@ public class Jabberwocky_Controller {
 
 			view.newTxt.setText(newText);
 		});
-
+	}
+	
+		private String addEndCharIfNotPresent(String string, Character lastchar) {
+		   if (string.endsWith(lastchar.toString())) {
+			   return string;
+		}
+		return string + lastchar;
 	}
 
 }
