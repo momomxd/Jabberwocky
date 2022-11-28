@@ -11,27 +11,31 @@ import javafx.stage.FileChooser;
 
 public class Jabberwocky_Model {
 	
-	private String inputText;
+	String inputText;
 	private int Fenstergrösse;
 	private ArrayList <String>TextTeile;
 		
 	Character LastChar = '■';
 	Character splitChar = 'ⱺ';
 	
-	public Jabberwocky_Model(int Fenstergrösse, String inputText) {
-		this.Fenstergrösse = Fenstergrösse;
-		this.inputText = inputText;	
+	public Jabberwocky_Model() {
+		
 		TextTeile = new ArrayList<String>();
-	
-		GenerateTextTeilListe();
 		
 	}
-	
+	public void setFensterGrösse(int value) {
+		this.Fenstergrösse = value;
+	}
+	public void setTextTeile() {
+		
+		TextTeile.clear();
+		GenerateTextTeile();
+	}
 	/*
 	 * Die Methode GenerateTextTeilListe speichert die Fenstergrösse und das nächste Zeichen in Strings
 	 * und speichert diese in der ArrayListe "TextTeile" im Format: StartString {splitChar} NextChar
 	 */
-	private void GenerateTextTeilListe() {
+	private void GenerateTextTeile() {
 		boolean endeErreicht = false;
 		int index = 0;
 		
@@ -141,4 +145,8 @@ public class Jabberwocky_Model {
     			e.printStackTrace();
     			}return text;
     }
+	public void setInputText(String input) {
+		this.inputText = input;
+		
+	}
 }

@@ -22,10 +22,12 @@ public class Jabberwocky_View {
 	private Jabberwocky_Model Model;
 	protected Stage stage;
 	protected Button btnGenerate;						// Button um neuen text zu generieren
-	protected TextArea txtArea;							////Textfeld für Eingabe
-	protected Label	txtLabel;
+	protected TextArea txtArea;	 ////Textfeld für Eingabe
+	protected TextArea newTxt;	//Textfeld für Ausgabe
+	protected Label ausgabe;	// Label für ausgabe
+	protected Label	eingabe;	// Label für eingabe
 	protected Slider slider;
-	protected MenuBar menuBar;
+	protected Button File;	// Button um Datei einzulesen
 	protected Menu menuFile, menuHelp;
 					
 	public Jabberwocky_View(Stage stage, Jabberwocky_Model model) { 
@@ -36,16 +38,12 @@ public class Jabberwocky_View {
 			stage.setTitle(" JabberWocky - Sprachlernmaschine");
 			
 			BorderPane pane = new BorderPane();
-			HBox boxforbuttons = new HBox();
-			HBox boxfortxt = new HBox();
-			VBox topBox = new VBox();
+			BorderPane boxforbuttons = new BorderPane();
 			
-		
-		menuBar = new MenuBar();
-		menuFile = new Menu("File");
-		menuHelp = new Menu("Help");
-		
-		menuBar.getMenus().addAll(menuFile,menuHelp);
+			VBox topBox = new VBox();
+			GridPane GPText = new GridPane();
+			
+			File = new Button("  File  ");
 		
 		btnGenerate = new Button("Generate");
 		
@@ -59,21 +57,27 @@ public class Jabberwocky_View {
 		slider.setShowTickMarks(true);
 		slider.setSnapToTicks(true);
 		
-		boxforbuttons.getChildren().add(slider);
-		boxforbuttons.getChildren().add(btnGenerate);
+		boxforbuttons.setRight(btnGenerate);
+		boxforbuttons.setLeft(slider);
 		
-		txtArea = new TextArea();
-		txtLabel = new Label("Ausgabe: "); 
-		boxfortxt.getChildren().add(txtArea);
-		boxfortxt.getChildren().add(txtLabel);
+		eingabe = new Label ("Eingabe: ");
+		txtArea = new TextArea(model.inputText); 
+		
+		newTxt = new TextArea();
+		ausgabe = new Label ("Ausgabe: ");
 		
 	
+		GPText.add(eingabe, 0, 0);
+		GPText.add(txtArea, 0, 1);
+		GPText.add(ausgabe, 1, 0);
+		GPText.add(newTxt, 1, 1);
 			
-			topBox.getChildren().add(menuBar);
+			topBox.getChildren().add(File);
 			topBox.getChildren().add(boxforbuttons);
+			topBox.getChildren().add(GPText);
 			
 		pane.setTop(topBox);
-		pane.setCenter(boxfortxt);
+		pane.setCenter(GPText);
 		
 		Scene scene = new Scene(pane);
 		
