@@ -19,6 +19,7 @@ public class Jabberwocky_MVC extends Application{
 		
 	
 		
+
 		model = new Jabberwocky_Model();
 		
 		view = new Jabberwocky_View(stage, model);
