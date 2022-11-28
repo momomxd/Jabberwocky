@@ -97,9 +97,11 @@ public class Jabberwocky_Model {
 		possibleCharacters.add(TextandnextChar[1].charAt(0));			
 			}
 		}
+		
 	return possibleCharacters;
 	
 	}
+	
 	
 	// Methode um einen neuen Text zu generieren
 	public String generateText() {
