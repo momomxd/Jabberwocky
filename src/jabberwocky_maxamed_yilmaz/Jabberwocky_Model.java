@@ -145,4 +145,8 @@ public class Jabberwocky_Model {
     			e.printStackTrace();
     			}return text;
     }
+	public void setInputText(String input) {
+		this.inputText = input;
+		
+	}
 }
