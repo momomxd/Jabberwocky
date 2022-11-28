@@ -24,10 +24,14 @@ public class Jabberwocky_Controller {
 			model.setFensterGrösse(newvalue.intValue());
 		});
 
-		// TODO ChangeListener für den Eingabetext
-
-		// TODO EVENTHANDLING FÜR DAS EINLESEN EINER TEXTDATEI
-
+		// ChangeListener für den Eingabetext
+		
+		view.txtArea.textProperty().addListener(
+				(observable,oldValue,newValue)-> {
+					view.btnGenerate.setDisable(newValue.isEmpty());
+				});
+		
+		// EVENTHANDLING FÜR DAS EINLESEN EINER TEXTDATEI
 		view.file.setOnAction((event) -> {
 
 			try {
