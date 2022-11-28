@@ -15,25 +15,29 @@ public class Jabberwocky_Controller {
 		this.model = model;
 		this.view = view;
 
-		// Changelister für Slider
-		
+		// Changelistener für die Fenstergrösse
+
 		view.slider.valueProperty().addListener(
-				(observable,oldvalue,newvalue) -> {
-					model.setFensterGrösse(newvalue.intValue());
-				});
-		
+			(observable, oldvalue, newvalue) -> {
+			model.setFensterGrösse(newvalue.intValue());
+		});
+
+		// TODO ChangeListener für den Eingabetext
+
+		// TODO EVENTHANDLING FÜR DAS EINLESEN EINER TEXTDATEI
+
+		// EVENTHANDLING FÜR DEN GENERATE BUTTON
 		view.btnGenerate.setOnAction((event) -> {
-			
+
 			model.setInputText(view.txtArea.getText());
-			
+
 			model.setTextTeile();
-			
+
 			String newText = model.generateText();
-			
+
 			view.newTxt.setText(newText);
 		});
-		
-		
+
 	}
 
 }
