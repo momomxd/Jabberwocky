@@ -25,12 +25,11 @@ public class Jabberwocky_Controller {
 		});
 
 		// ChangeListener für den Eingabetext
-		
-		view.txtArea.textProperty().addListener(
-				(observable,oldValue,newValue)-> {
-					view.btnGenerate.setDisable(newValue.isEmpty());
-				});
-		
+
+		view.txtArea.textProperty().addListener((observable, oldValue, newValue) -> {
+			view.btnGenerate.setDisable(newValue.isEmpty());
+		});
+
 		// EVENTHANDLING FÜR DAS EINLESEN EINER TEXTDATEI
 		view.file.setOnAction((event) -> {
 
@@ -53,7 +52,7 @@ public class Jabberwocky_Controller {
 		// EVENTHANDLING FÜR DEN GENERATE BUTTON
 		view.btnGenerate.setOnAction((event) -> {
 
-			model.setInputText(view.txtArea.getText()+ model.LastChar);
+			model.setInputText(view.txtArea.getText() + model.LastChar);
 
 			model.setTextTeile();
 
@@ -62,10 +61,10 @@ public class Jabberwocky_Controller {
 			view.newTxt.setText(newText);
 		});
 	}
-	
-		private String addEndCharIfNotPresent(String string, Character lastchar) {
-		   if (string.endsWith(lastchar.toString())) {
-			   return string;
+
+	private String addEndCharIfNotPresent(String string, Character lastchar) {
+		if (string.endsWith(lastchar.toString())) {
+			return string;
 		}
 		return string + lastchar;
 	}
