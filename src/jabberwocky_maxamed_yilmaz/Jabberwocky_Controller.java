@@ -18,6 +18,8 @@ public class Jabberwocky_Controller {
 		view.btnGenerate.setOnAction((event) -> {
 			model.generateText();
 		});
+		
+		
 	}
 
 }
