@@ -23,7 +23,14 @@ public class Jabberwocky_Controller {
 				});
 		
 		view.btnGenerate.setOnAction((event) -> {
-			model.generateText();
+			
+			model.setInputText(view.txtArea.getText());
+			
+			model.setTextTeile();
+			
+			String newText = model.generateText();
+			
+			view.newTxt.setText(newText);
 		});
 		
 		
