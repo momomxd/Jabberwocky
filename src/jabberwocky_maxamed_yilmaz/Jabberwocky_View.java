@@ -35,7 +35,7 @@ public class Jabberwocky_View {
 			this.Model = model;
 			this.stage = stage;
 		
-			stage.setTitle(" JabberWocky - Sprachlernmaschine");
+			stage.setTitle(" Jabberwocky - Sprachlernmaschine");
 			
 			BorderPane pane = new BorderPane();
 			BorderPane boxforbuttons = new BorderPane();
@@ -43,9 +43,9 @@ public class Jabberwocky_View {
 			VBox topBox = new VBox();
 			GridPane GPText = new GridPane();
 			
-			file = new Button("  File  ");
+			file = new Button("  Datei  ");
 		
-		btnGenerate = new Button("Generate");
+		btnGenerate = new Button("Generieren");
 		
 		slider = new Slider();
 		slider.setValue(4);
@@ -81,6 +81,8 @@ public class Jabberwocky_View {
 		
 		Scene scene = new Scene(pane);
 		
+		scene.getStylesheets().add(getClass().getResource("Jabberwocky.css").toExternalForm());
+		stage.show();
 		stage.setScene(scene);
 	
 	
