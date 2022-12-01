@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
@@ -27,20 +28,22 @@ public class Jabberwocky_Model {
 	 * Wir ersetzen die Liste mit einer HashMap
 	 * Der Key wird die Fenstergrösse zum matchen und der Value eine Liste mit den nächsten Zeichen
 	 */
-	private HashMap<String, List<Character>> TextTeile;
+	private HashMap<String, List<Character>> Teile;
 	
+	// weil die Map nicht geordnet ist, müssen wir den start in einer spezifischen Variable speichern
+	private String textStart = "";
 	
 	public Jabberwocky_Model() {
 		
 	//	TextTeile = new ArrayList<String>();
-		TextTeile = new HashMap<>();
+		Teile = new HashMap<>();
 	}
 //		public List<String> getTextTeile(){
 //			return this.TextTeile;
 //	 }
 	
 	public HashMap<String, List<Character>> getTextTeile(){
-		return TextTeile;
+		return Teile;
 	}
 	
 	public void setInputText(String input) {
@@ -53,8 +56,9 @@ public class Jabberwocky_Model {
 	}
 	public void setTextTeile() {
 		
-		// Die Liste muss geleert werden bevor neue Textteile hinzugefügt werden können
-		TextTeile.clear();
+		// Die Map muss geleert werden bevor neue Textteile hinzugefügt werden können
+		Teile.clear();
+		textStart = "";
 		GenerateTextTeile();
 	}
 	
@@ -72,26 +76,40 @@ public class Jabberwocky_Model {
 				// Holt die Fenstergrösse und speichert es in einem String
 			String window = inputText.substring(index, index + Fenstergrösse);	
 		
+			
 				// Holt das nächste Zeichen nach der Fenstergrösse
 			Character nextChar =  inputText.charAt(index + Fenstergrösse);
 		
 				// fügt den StartString + splitchar + nextChar der TextTeile Liste hinzu
 		//	this.TextTeile.add(window  + this.splitChar  + nextChar);
-		//	index++;
-			
 		
+			
+				
+			
+			if(Teile.containsKey(window)) {
+				//  Wir fügen das Element in die Map ein
+			List<Character> chars = new ArrayList<>(Teile.get(window));
+			
+				// das nächste Zeichen wird der Liste hinzugefügt
+			chars.add(nextChar);
+			
+				// hier fügen wir die Fenstergrösse zusammen mit dem nächsten Zeichen der Hashmap hinzu
+			Teile.put(window,chars);
+			} 
+				// TODO was tun wenn sich die Fenstergrösse wiederholt
+			
+			
+				index++;
+				
+				
 				//Wenn das nächste Zeichen und das letzte Zeichen gleich sind, hat man das Ende des Input Textes erreicht
 			if(nextChar.equals(this.LastChar)) {
 		 	endeErreicht = true;
-			}	 
+			}	
 			
-			if(TextTeile.containsKey(window)) {
-				//  Wir fügen das Element in die Map ein
-			List<Character> chars = new ArrayList<>(TextTeile.get(window));
-			TextTeile.put(window,chars);
-			}
+		}
+	
 			
-		}	
 		
 		// nachdem die Liste mit Werten gefüllt wurde, sortieren wir sie für die binäre Suche
 		/*
@@ -101,14 +119,7 @@ public class Jabberwocky_Model {
 		
 	}
 	
-	// Methode um Liste zu überprüfen -> nicht für das Programm relevant 
-	public void showList() {
-		
-		for(int i = 0; i < TextTeile.size(); i++)
-			System.out.println(TextTeile.get(i));
-	
-	}
-	
+
 	//Methode um das nächste Zeichen auszuwählen mit Random
 	
 	public Character getNextChar(String input) {
@@ -125,26 +136,28 @@ public class Jabberwocky_Model {
 	
 	
 	// Methode gibt eine ArrayListe mit allen möglichen nächsten Zeichen zurück
-	private List <Character> findPossibleCharacters(String input){
+
+	/* 
+		private List <Character> findPossibleCharacters(String input){
 	
-		List <Character> possibleCharacters = new ArrayList<>();	
+			List <Character> possibleCharacters = new ArrayList<>();	
 	
-		// Schleife durch jeden String der Liste "TextTeile"
-		for(int i = 0; i<TextTeile.size();i++) {
+				// Schleife durch jeden String der Liste "TextTeile"
+			for(int i = 0; i<TextTeile.size();i++) {
 		
-			String [] TextandnextChar = this.TextTeile.get(i).split(splitChar.toString());
+				String [] TextandnextChar = this.TextTeile.get(i).split(splitChar.toString());
 			
-		// Wenn der Text gleich ist wie der input
-		if(TextandnextChar[0].equals(input)) {
-			// füge das dazugehörige nächste Zeichen dem Array hinzu
-		possibleCharacters.add(TextandnextChar[1].charAt(0));			
+					// Wenn der Text gleich ist wie der input
+					if(TextandnextChar[0].equals(input)) {
+					// füge das dazugehörige nächste Zeichen dem Array hinzu
+				possibleCharacters.add(TextandnextChar[1].charAt(0));			
 			}
 		}
 		
-	return possibleCharacters;
+		return possibleCharacters;
 	
-	}
-	
+		}
+	*/
 	
 	// Methode um einen neuen Text zu generieren
 	public String generateText() {
