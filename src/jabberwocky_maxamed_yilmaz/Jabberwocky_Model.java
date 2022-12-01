@@ -84,9 +84,13 @@ public class Jabberwocky_Model {
 			if(nextChar.equals(this.LastChar)) {
 		 	endeErreicht = true;
 			}	 
-			//  Wir fügen das Element in die Map ein
+			
+			if(TextTeile.containsKey(window)) {
+				//  Wir fügen das Element in die Map ein
 			List<Character> chars = new ArrayList<>(TextTeile.get(window));
 			TextTeile.put(window,chars);
+			}
+			
 		}	
 		
 		// nachdem die Liste mit Werten gefüllt wurde, sortieren wir sie für die binäre Suche
