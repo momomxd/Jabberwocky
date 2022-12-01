@@ -35,13 +35,14 @@ public class Jabberwocky_Model {
 	 * Die Methode GenerateTextTeilListe speichert die Fenstergrösse und das nächste Zeichen in Strings
 	 * und speichert diese in der ArrayListe "TextTeile" im Format: StartString {splitChar} NextChar
 	 */
-	private void GenerateTextTeile() {
+	private void GenerateTextTeile() throws StringIndexOutOfBoundsException{
 		boolean endeErreicht = false;
 		int index = 0;
 		
 		while (!endeErreicht) {
 			
-				// Holt die Fenstergrösse und speichert es in einem String
+			// Holt die Fenstergrösse und speichert es in einem String
+			
 			String window = inputText.substring(index, index + Fenstergrösse);	
 		
 				// Holt das nächste Zeichen nach der Fenstergrösse
@@ -55,7 +56,8 @@ public class Jabberwocky_Model {
 			if(nextChar.equals(this.LastChar)) {
 		 	endeErreicht = true;
 			}	 
-		}	
+		
+			}	
 	}
 	
 	// Methode um Liste zu überprüfen -> nicht für das Programm relevant 

@@ -46,6 +46,7 @@ public class Jabberwocky_View {
 			file = new Button("  Datei  ");
 		
 		btnGenerate = new Button("Generieren");
+		btnGenerate.getStyleClass().add("fancy-button");
 		btnGenerate.setDisable(true);
 		
 		slider = new Slider();
@@ -59,6 +60,7 @@ public class Jabberwocky_View {
 		slider.setSnapToTicks(true);
 		
 		boxforbuttons.setRight(btnGenerate);
+		
 		boxforbuttons.setLeft(slider);
 		
 		eingabe = new Label ("Eingabe: ");
@@ -80,9 +82,9 @@ public class Jabberwocky_View {
 		pane.setTop(topBox);
 		pane.setCenter(GPText);
 		
-		Scene scene = new Scene(pane);
+		Scene scene = new Scene(pane,800,500);
 		
-		scene.getStylesheets().add(getClass().getResource("Jabberwocky.css").toExternalForm());
+		scene.getStylesheets().add(getClass().getResource("stylesheet.css").toExternalForm());
 		stage.show();
 		stage.setScene(scene);
 	

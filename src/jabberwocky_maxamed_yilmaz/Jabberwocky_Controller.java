@@ -51,14 +51,21 @@ public class Jabberwocky_Controller {
 
 		// EVENTHANDLING FÜR DEN GENERATE BUTTON
 		view.btnGenerate.setOnAction((event) -> {
+			
+			//Try-Catch falls die Eingabe zu kurz ist 
+			try{
 
 			model.setInputText(view.txtArea.getText() + model.LastChar);
-
 			model.setTextTeile();
 
 			String newText = model.generateText();
 
 			view.newTxt.setText(newText);
+			
+		} catch (StringIndexOutOfBoundsException e) {
+			String newText = "Die Eingabe ist zu kurz!, gib bitte einen längeren Text ein";
+			view.newTxt.setText(newText);
+			}	
 		});
 	}
 	
