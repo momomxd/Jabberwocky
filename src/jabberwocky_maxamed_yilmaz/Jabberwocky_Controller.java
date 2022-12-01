@@ -61,6 +61,7 @@ public class Jabberwocky_Controller {
 			view.newTxt.setText(newText);
 		});
 	}
+	
 
 	private String addEndCharIfNotPresent(String string, Character lastchar) {
 		if (string.endsWith(lastchar.toString())) {

@@ -46,6 +46,7 @@ public class Jabberwocky_View {
 			file = new Button("  Datei  ");
 		
 		btnGenerate = new Button("Generieren");
+		btnGenerate.setDisable(true);
 		
 		slider = new Slider();
 		slider.setValue(4);
