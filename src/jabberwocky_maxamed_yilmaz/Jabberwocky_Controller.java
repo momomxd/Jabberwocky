@@ -63,7 +63,7 @@ public class Jabberwocky_Controller {
 			view.newTxt.setText(newText);
 			
 		} catch (StringIndexOutOfBoundsException e) {
-			String newText = "Die Eingabe ist zu kurz!, gib bitte einen längeren Text ein";
+			String newText = "Die Eingabe ist zu kurz!" + '\n' +"gib bitte einen längeren Text ein";
 			view.newTxt.setText(newText);
 			}	
 		});

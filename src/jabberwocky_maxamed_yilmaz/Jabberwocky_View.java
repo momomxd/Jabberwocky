@@ -43,7 +43,9 @@ public class Jabberwocky_View {
 			VBox topBox = new VBox();
 			GridPane GPText = new GridPane();
 			
-			file = new Button("  Datei  ");
+			file = new Button();
+			file.setMaxSize(80, 100);
+			file.setText("Datei");
 		
 		btnGenerate = new Button("Generieren");
 		btnGenerate.getStyleClass().add("fancy-button");

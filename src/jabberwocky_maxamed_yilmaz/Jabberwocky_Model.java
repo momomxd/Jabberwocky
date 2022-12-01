@@ -12,7 +12,7 @@ import javafx.stage.FileChooser;
 public class Jabberwocky_Model {
 	
 	String inputText;
-	private int Fenstergrösse;
+	private int Fenstergrösse = 4;
 	private ArrayList <String>TextTeile;
 		
 	Character LastChar = '■';
