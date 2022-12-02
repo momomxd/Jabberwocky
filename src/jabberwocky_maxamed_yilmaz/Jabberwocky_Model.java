@@ -14,10 +14,9 @@ public class Jabberwocky_Model {
 	String inputText;
 	private int Fenstergrösse = 4;
 	private ArrayList <String>TextTeile;
-		
 	Character LastChar = '■';
 	Character splitChar = 'ⱺ';
-	
+	long TimeForArrayList;
 	public Jabberwocky_Model() {
 		
 		TextTeile = new ArrayList<String>();
@@ -39,9 +38,13 @@ public class Jabberwocky_Model {
 	 * Die Methode GenerateTextTeilListe speichert die Fenstergrösse und das nächste Zeichen in Strings
 	 * und speichert diese in der ArrayListe "TextTeile" im Format: StartString {splitChar} NextChar
 	 */
+	
 	private void GenerateTextTeile() throws StringIndexOutOfBoundsException{
 		boolean endeErreicht = false;
 		int index = 0;
+		
+		long TimeForArrayList = System.nanoTime();		// Startpunkt um Zeit zu messen -> endpunkt im Controller bei
+														// der generate Text Methode
 		
 		while (!endeErreicht) {
 			
@@ -155,5 +158,7 @@ public class Jabberwocky_Model {
     }
     
     
-	
+	public void setEndChar() {
+		this.EndTimeCalcSign = this.LastChar;
+	}
 }

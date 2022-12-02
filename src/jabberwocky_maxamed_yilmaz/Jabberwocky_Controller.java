@@ -12,7 +12,7 @@ public class Jabberwocky_Controller {
 
 	Jabberwocky_Model model;
 	Jabberwocky_View view;
-
+	long ListTime;
 	public Jabberwocky_Controller(Jabberwocky_Model model, Jabberwocky_View view) {
 
 		this.model = model;
@@ -59,22 +59,34 @@ public class Jabberwocky_Controller {
 			model.setTextTeile();
 
 			String newText = model.generateText();
-
+			
+			
+			view.newTxt.setText(newText);
+			long ListTime = System.currentTimeMillis()- model.TimeForArrayList;	// Berechnung der Zeit
+			System.out.println(" Berechnungszeit:" + ListTime);
+			
+			//Abfangen falls Fenstergrösse grösser als die Eingabe ist
+		} catch (StringIndexOutOfBoundsException e) {	
+			String newText = "Die Eingabe ist zu kurz!" + '\n' +"gib bitte einen längeren Text ein";
+			
 			view.newTxt.setText(newText);
 			
-		} catch (StringIndexOutOfBoundsException e) {
-			String newText = "Die Eingabe ist zu kurz!" + '\n' +"gib bitte einen längeren Text ein";
-			view.newTxt.setText(newText);
-			}	
+			}
+			
+				
+			
+			
 		});
 	}
 	
-
+			// Methode fügt dem eingelesenen Text das definierte Schlusszeichen ein
 	private String addEndCharIfNotPresent(String string, Character lastchar) {
 		if (string.endsWith(lastchar.toString())) {
 			return string;
 		}
 		return string + lastchar;
 	}
+	
+
 
 }

@@ -22,12 +22,16 @@ public class Jabberwocky_MVC extends Application{
 		view = new Jabberwocky_View(stage, model);
 		controller = new Jabberwocky_Controller(model, view);
 		
+		
 		view.start();
 	}
 	
 		public static void main(String[] args)  {
+	
 		launch();
+		
 	}
+
 	
 
 
