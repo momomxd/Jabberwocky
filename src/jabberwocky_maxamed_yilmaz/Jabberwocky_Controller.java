@@ -53,9 +53,10 @@ import javafx.stage.*;
 			// EVENTHANDLING FÜR DEN GENERATE BUTTON
 			view.btnGenerate.setOnAction((event) -> {
 				
-				//Try-Catch falls die Eingabe zu kurz ist 
+				//Try-Catch falls die Eingabe zu kurz ist
+				long start = System.currentTimeMillis(); 
 				try{
-
+					// Startpunkt für Berechnung
 				model.setInputText(view.txtArea.getText() + model.LastChar);
 				model.setTextTeile();
 
@@ -70,7 +71,10 @@ import javafx.stage.*;
 				String newText = "Die Eingabe ist zu kurz!" + '\n' +"gib bitte einen längeren Text ein";
 				
 				view.newTxt.setText(newText);
-				
+			long end = System.currentTimeMillis(); 			// Endpunkt für Zeitberechnung
+			long total = end - start;
+			System.out.println("Berechnungszeit: " + total + " Millisekunden");
+			
 				}
 			});
 		}
