@@ -158,7 +158,4 @@ public class Jabberwocky_Model {
     }
     
     
-	public void setEndChar() {
-		this.EndTimeCalcSign = this.LastChar;
-	}
 }
