@@ -124,8 +124,7 @@ public class Jabberwocky_Model {
 				endeErreicht = true;
 			}
 		index++;	
-		}
-		System.out.print(newText);	
+		}	
 		return newText;
 		
 	}

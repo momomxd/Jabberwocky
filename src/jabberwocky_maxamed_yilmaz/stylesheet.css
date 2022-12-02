@@ -11,6 +11,13 @@
 	
 }
 
+#generate{
+	-fx-vgap: 20px;
+	
+}
+
+
+
 .fancy-button:hover { 
 	-fx-background-color: yellow;
 	-fx-text-fill: red;
@@ -27,3 +34,4 @@
 .button.datei {
 	-fx-background-color: #ffa500;
 }
+

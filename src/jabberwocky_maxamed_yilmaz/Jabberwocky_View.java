@@ -46,8 +46,10 @@ public class Jabberwocky_View {
 			file = new Button();
 			file.setMaxSize(80, 100);
 			file.setText("Datei");
+			file.setId("file");
 		
 		btnGenerate = new Button("Generieren");
+		btnGenerate.setId("generate");
 		btnGenerate.getStyleClass().add("fancy-button");
 		btnGenerate.setDisable(true);
 		
