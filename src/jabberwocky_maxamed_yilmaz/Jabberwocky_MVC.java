@@ -17,9 +17,6 @@ public class Jabberwocky_MVC extends Application{
 	@Override
 	public void start(Stage stage) throws Exception {
 		
-	
-		
-
 		model = new Jabberwocky_Model();
 		
 		view = new Jabberwocky_View(stage, model);

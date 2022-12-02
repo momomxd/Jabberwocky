@@ -1,13 +1,13 @@
 .root{
 	
-	-fx-font-size: 20px;
+	-fx-font-size: 15px;
 	-fx-font-weighth: bold;
-	-fx-background-color: lightblue;
+//	-fx-background-color: lightblue;
 	}
 .fancy-button{
 	
-	-fx-background-color: red;
-	-fx-text-fill: white;
+	-fx-background-color: lightyellow;
+	-fx-text-fill: Black;
 	
 }
 
@@ -19,8 +19,8 @@
 
 
 .fancy-button:hover { 
-	-fx-background-color: yellow;
-	-fx-text-fill: red;
+	-fx-background-color: white;
+	-fx-text-fill: blue;
 }
 .fancy-button:pressed{
 	-fx-background-color: green;
@@ -32,6 +32,21 @@
 //	}
 	
 .button.datei {
-	-fx-background-color: #ffa500;
+	-fx-background-color: -fx-shadow-highlight-color;
+
+}
+.slider {
+    -default-track-color: blue;
+    -track-color: green ;
+}
+.slider .track {
+    -fx-background-color: -fx-shadow-highlight-color;
+    -track-color: yellow;
+         
+          
+}
+.Label{
+	-fx-font-weigth: bold;
+
 }
 

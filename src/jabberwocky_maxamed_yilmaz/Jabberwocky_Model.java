@@ -23,6 +23,10 @@ public class Jabberwocky_Model {
 		TextTeile = new ArrayList<String>();
 		
 	}
+	public void setInputText(String input) {
+		this.inputText = input;
+		
+	}
 	public void setFensterGrösse(int value) {
 		this.Fenstergrösse = value;
 	}
@@ -72,13 +76,14 @@ public class Jabberwocky_Model {
 	
 	public Character getNextChar(String input) {
 		
-		//holt alle möglichen nächsten Zeichen
+		//holt alle möglichen nächsten Zeichen für den input(die Fenstergrösse)
 		ArrayList<Character> PossibleNextChar = findPossibleCharacters(input);
 		
 		Random randomchar = new Random();
-		
+		// bestimmt eine Zufällige Position  in der Liste der möglichen Zeichen
 		int randomnextchar = randomchar.nextInt(PossibleNextChar.size());
 		
+		// gibt das Zeichen zurück welches auf der zufälligen Position ist
 		return PossibleNextChar.get(randomnextchar);
 	}
 	
@@ -99,7 +104,6 @@ public class Jabberwocky_Model {
 		possibleCharacters.add(TextandnextChar[1].charAt(0));			
 			}
 		}
-		
 	return possibleCharacters;
 	
 	
@@ -149,8 +153,7 @@ public class Jabberwocky_Model {
     			e.printStackTrace();
     			}return text;
     }
-	public void setInputText(String input) {
-		this.inputText = input;
-		
-	}
+    
+    
+	
 }
