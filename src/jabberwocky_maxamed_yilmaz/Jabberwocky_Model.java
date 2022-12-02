@@ -131,8 +131,7 @@ public class Jabberwocky_Model {
 	}
 	
 	
-	// Methode gibt eine ArrayListe mit allen möglichen nächsten Zeichen zurück
-
+	// Methode gibt eine Liste mit allen möglichen nächsten Zeichen zurück
 	
 		private List <Character> findPossibleCharacters(String input){
 	/*
