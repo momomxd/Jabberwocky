@@ -19,7 +19,7 @@ public class Jabberwocky_Model {
 	
 	
 	String inputText;
-	private int Fenstergrösse;
+	private int Fenstergrösse = 4;
 	
 	//private List <String>TextTeile;
 	
@@ -68,11 +68,15 @@ public class Jabberwocky_Model {
 		boolean endeErreicht = false;
 		int index = 0;
 		
+		
 		while (!endeErreicht) {
 			
 				// Holt die Fenstergrösse und speichert es in einem String
 			String window = inputText.substring(index, index + Fenstergrösse);	
-		
+			
+			if(textStart.isEmpty()) {
+			textStart = window;
+			}
 			
 				// Holt das nächste Zeichen nach der Fenstergrösse
 			Character nextChar =  inputText.charAt(index + Fenstergrösse);
@@ -169,7 +173,7 @@ public class Jabberwocky_Model {
 			newText.append(nextChar);
 			
 		//wenn das nächste Zeichen das LastChar ist, beenden	
-			if(nextChar == this.LastChar) {
+			if(nextChar.equals(this.LastChar)) {
 				endeErreicht = true;
 			}
 		index++;	

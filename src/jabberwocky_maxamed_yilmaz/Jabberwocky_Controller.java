@@ -69,10 +69,11 @@ import javafx.stage.*;
 				//Abfangen falls Fenstergrösse grösser als die Eingabe ist
 			} catch (StringIndexOutOfBoundsException e) {	
 				String newText = "Die Eingabe ist zu kurz!" + '\n' +"gib bitte einen längeren Text ein";
-				
+			long end = System.currentTimeMillis(); 				// Endpunkt für Zeitberechnung
+			
+				long total = end - start;
+			
 				view.newTxt.setText(newText);
-			long end = System.currentTimeMillis(); 			// Endpunkt für Zeitberechnung
-			long total = end - start;
 			System.out.println("Berechnungszeit: " + total + " Millisekunden");
 			
 				}
