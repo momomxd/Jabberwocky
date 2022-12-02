@@ -72,10 +72,6 @@ import javafx.stage.*;
 				view.newTxt.setText(newText);
 				
 				}
-				
-					
-				
-				
 			});
 		}
 		
@@ -86,7 +82,4 @@ import javafx.stage.*;
 			}
 			return string + lastchar;
 		}
-		
-
-
 	}
