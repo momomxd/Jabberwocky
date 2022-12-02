@@ -13,7 +13,7 @@
 
 #generate{
 	-fx-vgap: 20px;
-	
+	-fx-background-radius: 10;
 }
 
 
