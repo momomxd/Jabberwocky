@@ -43,9 +43,6 @@ public class Jabberwocky_Model {
 		boolean endeErreicht = false;
 		int index = 0;
 		
-		long TimeForArrayList = System.nanoTime();		// Startpunkt um Zeit zu messen -> endpunkt im Controller bei
-														// der generate Text Methode
-		
 		while (!endeErreicht) {
 			
 			// Holt die Fenstergrösse und speichert es in einem String

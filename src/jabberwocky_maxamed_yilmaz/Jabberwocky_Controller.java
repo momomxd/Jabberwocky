@@ -54,7 +54,8 @@ public class Jabberwocky_Controller {
 			
 			//Try-Catch falls die Eingabe zu kurz ist 
 			try{
-
+				
+				long start = System.currentTimeMillis();
 			model.setInputText(view.txtArea.getText() + model.LastChar);
 			model.setTextTeile();
 
@@ -62,8 +63,9 @@ public class Jabberwocky_Controller {
 			
 			
 			view.newTxt.setText(newText);
-			long ListTime = System.currentTimeMillis()- model.TimeForArrayList;	// Berechnung der Zeit
-			System.out.println(" Berechnungszeit:" + ListTime);
+			long end = System.currentTimeMillis();	// Ende des Durchlaufs
+			long total = end - start;				// Berechnung der Zeit
+			System.out.println(" Berechnungszeit:" + total + " Millisekunden");
 			
 			//Abfangen falls Fenstergrösse grösser als die Eingabe ist
 		} catch (StringIndexOutOfBoundsException e) {	

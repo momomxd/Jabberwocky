@@ -33,12 +33,13 @@
 	
 .button.datei {
 	-fx-background-color: -fx-shadow-highlight-color;
+	-fx-background-color: lightyellow;
+	-fx-text-fill: Black;
+	-fx-vgap: 20px;
+	-fx-background-radius: 10;
 
 }
-.slider {
-    -default-track-color: blue;
-    -track-color: green ;
-}
+
 .slider .track {
     -fx-background-color: -fx-shadow-highlight-color;
     -track-color: yellow;
