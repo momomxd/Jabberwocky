@@ -137,9 +137,9 @@ public class Jabberwocky_Model {
 	
 	// Methode gibt eine ArrayListe mit allen möglichen nächsten Zeichen zurück
 
-	/* 
-		private List <Character> findPossibleCharacters(String input){
 	
+		private List <Character> findPossibleCharacters(String input){
+	/*
 			List <Character> possibleCharacters = new ArrayList<>();	
 	
 				// Schleife durch jeden String der Liste "TextTeile"
@@ -153,33 +153,36 @@ public class Jabberwocky_Model {
 				possibleCharacters.add(TextandnextChar[1].charAt(0));			
 			}
 		}
-		
 		return possibleCharacters;
-	
-		}
 	*/
+			// wir holen das Element direkt von der Map
+			return Teile.get(input);
+		}
+	
+			
 	
 	// Methode um einen neuen Text zu generieren
 	public String generateText() {
 						
-	String newText = this.TextTeile.get(0).split(this.splitChar.toString())[0];
+		// Wir benutzen den textStart, weil wir nicht wissen welcher Teil der Map der Start der Linie ist
+	StringBuilder newText = new StringBuilder(textStart);
 		
 		boolean endeErreicht = false;
 		int index = 0;
 		
 		while(!endeErreicht) {
-			char nextChar = getNextChar(newText.substring(index, index + Fenstergrösse));
+			Character nextChar = getNextChar(newText.substring(index, index + Fenstergrösse));
+			// das nächste Zeichen wird dem aufgebauten String hinzugefügt
+			newText.append(nextChar);
 			
-			newText += nextChar;
-			
-			
+		//wenn das nächste Zeichen das LastChar ist, beenden	
 			if(nextChar == this.LastChar) {
 				endeErreicht = true;
 			}
 		index++;	
 		}
-		System.out.print(newText);	
-		return newText;
+			
+		return newText.toString();
 		
 	}
 	
@@ -187,21 +190,21 @@ public class Jabberwocky_Model {
 	
     public String FiletoString () throws FileNotFoundException {
     	
-    	String text = "";
+    	StringBuilder text = new StringBuilder();
     			FileChooser fileChooser = new FileChooser();
     		File file =	fileChooser.showOpenDialog(null);
     			
     			try {
     			Scanner scan = new Scanner(file);
     			while(scan.hasNextLine()) {
-    				text += scan.nextLine();
+    				text.append( scan.nextLine());
     			}
     			scan.close();
     			
     			
     			} catch (IOException e) {
     			e.printStackTrace();
-    			}return text;
+    			}return text.toString();
     }
 	
 }
