@@ -8,65 +8,85 @@ import java.io.FileNotFoundException;
 import javafx.application.*;
 import javafx.stage.*;
 
-public class Jabberwocky_Controller {
 
-	Jabberwocky_Model model;
-	Jabberwocky_View view;
 
-	public Jabberwocky_Controller(Jabberwocky_Model model, Jabberwocky_View view) {
+	public class Jabberwocky_Controller {
 
-		this.model = model;
-		this.view = view;
+		Jabberwocky_Model model;
+		Jabberwocky_View view;
+		long ListTime;
+		public Jabberwocky_Controller(Jabberwocky_Model model, Jabberwocky_View view) {
 
-		// Changelistener für die Fenstergrösse
+			this.model = model;
+			this.view = view;
 
-		view.slider.valueProperty().addListener((observable, oldvalue, newvalue) -> {
-			model.setFensterGrösse(newvalue.intValue());
-		});
+			// Changelistener für die Fenstergrösse
 
-		// ChangeListener für den Eingabetext
+			view.slider.valueProperty().addListener((observable, oldvalue, newvalue) -> {
+				model.setFensterGrösse(newvalue.intValue());
+			});
 
-		view.txtArea.textProperty().addListener((observable, oldValue, newValue) -> {
-			view.btnGenerate.setDisable(newValue.isEmpty());
-		});
+			// ChangeListener für den Eingabetext
 
-		// EVENTHANDLING FÜR DAS EINLESEN EINER TEXTDATEI
-		view.file.setOnAction((event) -> {
+			view.txtArea.textProperty().addListener((observable, oldValue, newValue) -> {
+				view.btnGenerate.setDisable(newValue.isEmpty());
+			});
 
-			try {
+			// EVENTHANDLING FÜR DAS EINLESEN EINER TEXTDATEI
+			view.file.setOnAction((event) -> {
 
-				String text = addEndCharIfNotPresent(model.FiletoString(), model.LastChar);
+				try {
 
-				model.setInputText(text);
-				model.setFensterGrösse((int) view.slider.getValue());
+					String text = addEndCharIfNotPresent(model.FiletoString(), model.LastChar);
 
-				view.txtArea.setText(model.inputText);
+					model.setInputText(text);
+					model.setFensterGrösse((int) view.slider.getValue());
 
-			} catch (FileNotFoundException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
+					view.txtArea.setText(model.inputText);
 
-		});
+				} catch (FileNotFoundException e) {
+					view.txtArea.setText("Datei wurde nicht gefunden");
+				}
 
-		// EVENTHANDLING FÜR DEN GENERATE BUTTON
-		view.btnGenerate.setOnAction((event) -> {
+			});
 
-			model.setInputText(view.txtArea.getText() + model.LastChar);
+			// EVENTHANDLING FÜR DEN GENERATE BUTTON
+			view.btnGenerate.setOnAction((event) -> {
+				
+				//Try-Catch falls die Eingabe zu kurz ist 
+				try{
 
-			model.setTextTeile();
+				model.setInputText(view.txtArea.getText() + model.LastChar);
+				model.setTextTeile();
 
-			String newText = model.generateText();
-
-			view.newTxt.setText(newText);
-		});
-	}
-
-	private String addEndCharIfNotPresent(String string, Character lastchar) {
-		if (string.endsWith(lastchar.toString())) {
-			return string;
+				String newText = model.generateText();
+				
+				
+				view.newTxt.setText(newText);
+				
+				
+				//Abfangen falls Fenstergrösse grösser als die Eingabe ist
+			} catch (StringIndexOutOfBoundsException e) {	
+				String newText = "Die Eingabe ist zu kurz!" + '\n' +"gib bitte einen längeren Text ein";
+				
+				view.newTxt.setText(newText);
+				
+				}
+				
+					
+				
+				
+			});
 		}
-		return string + lastchar;
-	}
+		
+				// Methode fügt dem eingelesenen Text das definierte Schlusszeichen ein
+		private String addEndCharIfNotPresent(String string, Character lastchar) {
+			if (string.endsWith(lastchar.toString())) {
+				return string;
+			}
+			return string + lastchar;
+		}
+		
 
-}
+
+	}
