@@ -38,9 +38,7 @@ public class Jabberwocky_Model {
 	//	TextTeile = new ArrayList<String>();
 		Teile = new HashMap<>();
 	}
-//		public List<String> getTextTeile(){
-//			return this.TextTeile;
-//	 }
+
 	
 	public HashMap<String, List<Character>> getTextTeile(){
 		return Teile;
@@ -82,9 +80,6 @@ public class Jabberwocky_Model {
 		
 				// fügt den StartString + splitchar + nextChar der TextTeile Liste hinzu
 		//	this.TextTeile.add(window  + this.splitChar  + nextChar);
-		
-			
-				
 			
 			if(Teile.containsKey(window)) {
 				//  Wir fügen das Element in die Map ein
@@ -95,8 +90,11 @@ public class Jabberwocky_Model {
 			
 				// hier fügen wir die Fenstergrösse zusammen mit dem nächsten Zeichen der Hashmap hinzu
 			Teile.put(window,chars);
-			} 
-				// TODO was tun wenn sich die Fenstergrösse wiederholt
+			
+				//falls sich die Fenstergrösse wiederholt
+			} else {
+				Teile.put(window, Arrays.asList(nextChar));
+			}
 			
 			
 				index++;
@@ -108,8 +106,6 @@ public class Jabberwocky_Model {
 			}	
 			
 		}
-	
-			
 		
 		// nachdem die Liste mit Werten gefüllt wurde, sortieren wir sie für die binäre Suche
 		/*
@@ -141,7 +137,6 @@ public class Jabberwocky_Model {
 		private List <Character> findPossibleCharacters(String input){
 	/*
 			List <Character> possibleCharacters = new ArrayList<>();	
-	
 				// Schleife durch jeden String der Liste "TextTeile"
 			for(int i = 0; i<TextTeile.size();i++) {
 		
