@@ -150,7 +150,7 @@ public class Jabberwocky_Model {
 		}
 		return possibleCharacters;
 	*/
-			// wir holen das Element direkt von der Map
+			// wir holen die Elemente direkt von der Map
 			return Teile.get(input);
 		}
 	
@@ -195,7 +195,6 @@ public class Jabberwocky_Model {
     				text.append( scan.nextLine());
     			}
     			scan.close();
-    			
     			
     			} catch (IOException e) {
     			e.printStackTrace();
