@@ -54,27 +54,28 @@ import javafx.stage.*;
 			view.btnGenerate.setOnAction((event) -> {
 				
 				//Try-Catch falls die Eingabe zu kurz ist
-				long start = System.currentTimeMillis(); 
+			
 				try{
-					// Startpunkt für Berechnung
+				long start = System.currentTimeMillis(); 			// Startpunkt für Berechnung
+				
 				model.setInputText(view.txtArea.getText() + model.LastChar);
 				model.setTextTeile();
 
 				String newText = model.generateText();
-				
-				
 				view.newTxt.setText(newText);
 				
+				
+				long end = System.currentTimeMillis(); 				// Endpunkt für Zeitberechnung
+				long total = end - start;
+				System.out.println("Berechnungszeit: " + total + " Millisekunden");
 				
 				//Abfangen falls Fenstergrösse grösser als die Eingabe ist
 			} catch (StringIndexOutOfBoundsException e) {	
 				String newText = "Die Eingabe ist zu kurz!" + '\n' +"gib bitte einen längeren Text ein";
-			long end = System.currentTimeMillis(); 				// Endpunkt für Zeitberechnung
 			
-				long total = end - start;
 			
 				view.newTxt.setText(newText);
-			System.out.println("Berechnungszeit: " + total + " Millisekunden");
+			
 			
 				}
 			});
